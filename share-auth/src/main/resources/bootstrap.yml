@@ -1,0 +1,21 @@
+# Tomcat
+server:
+  port: 9200
+
+# Spring
+spring:
+  application:
+    name: share-auth
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.20.10.12:8848
+        namespace: bf73558e-75bd-47f8-9009-d8360d8fa428
+      config:
+        server-addr: 172.20.10.12:8848
+        namespace: bf73558e-75bd-47f8-9009-d8360d8fa428
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
